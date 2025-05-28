@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>InterlliSite Group</title>
+  <style>
+    /* Dark theme base */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://www.bornfree.org.uk/wp-content/uploads/2023/09/Lion-species-hero-c-George-Logan.jpg') no-repeat center center/cover;
+      background-blend-mode: multiply;
+      background-color: #474747;
+      color: #f0e68c; /* duck yellow */
+    }
+    nav {
+      background-color: #fdd835; /* duck yellow */
+      padding: 12px 0;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      font-weight: bold;
+      color: #6a1b9a; /* purple */
+    }
+    nav a {
+      color: #6a1b9a;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #fdd835;
+      text-decoration: underline;
+    }
+    header {
+      text-align: center;
+      padding: 100px 20px 60px;
+      background-color: rgba(18, 18, 18, 0.85);
+      border-bottom: 2px solid #6a1b9a;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.3em;
+      color: #fdd835;
+      text-shadow: 1px 1px 4px #6a1b9a;
+    }
+    header p {
+      font-size: 1.3rem;
+      color: #ccc;
+    }
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: rgba(18, 18, 18, 0.85);
+      border-radius: 12px;
+      box-shadow: 0 0 10px #6a1b9a;
+    }
+    h2 {
+      color: #fdd835;
+      text-align: center;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 3px #6a1b9a;
+    }
+    ul {
+      list-style: disc inside;
+      color: #ddd;
+      font-size: 1.1rem;
+    }
+
+    /* Team Section */
+    .team {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 30px;
+    }
+    .member {
+      background-color: #222;
+      border: 2px solid #6a1b9a;
+      border-radius: 10px;
+      width: 220px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 0 10px #fdd835;
+      transition: transform 0.3s;
+    }
+    .member:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 15px #fff176;
+    }
+    .member img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 3px solid #fdd835;
+      box-shadow: 0 0 10px #6a1b9a;
+    }
+    .member h3 {
+      margin: 0 0 10px;
+      color: #fdd835;
+      font-size: 1.3rem;
+    }
+    .member p {
+      font-size: 0.95rem;
+      color: #ddd;
+      min-height: 70px;
+      margin-bottom: 15px;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .social-links a {
+      color: #6a1b9a;
+      font-size: 1.5rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .social-links a:hover {
+      color: #fdd835;
+    }
+
+    /* Projects Section */
+    .projects-list {
+      list-style: none;
+      padding: 0;
+      color: #ddd;
+      font-size: 1.1rem;
+    }
+    .projects-list li {
+      background-color: #333;
+      padding: 12px 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: inset 0 0 5px #6a1b9a;
+    }
+
+    /* Contact Section */
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      color: #ddd;
+    }
+    input, textarea {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1.5px solid #6a1b9a;
+      background-color: #222;
+      color: #fdd835;
+      font-size: 1rem;
+      resize: vertical;
+      transition: border-color 0.3s;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #fdd835;
+      box-shadow: 0 0 8px #fdd835;
+    }
+    button {
+      background-color: #6a1b9a;
+      color: #fdd835;
+      border: none;
+      padding: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #fdd835;
+      color: #6a1b9a;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #fdd835;
+      color: #6a1b9a;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+
+    /* Responsive */
+    @media(max-width: 600px) {
+      .team {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      header h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+  <script>
+    // Simple form submission simulation
+    function sendMessage(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name || !email || !message){
+        alert('Please fill in all fields.');
+        return;
+      }
+      alert(`Thank you, ${name}! Your message has been sent.`);
+      // Clear form
+      event.target.reset();
+    }
+  </script>
+  <!-- Font Awesome CDN for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Our Services</a>
+    <a href="#projects">Previous Projects</a>
+    <a href="#contact">Contact Us</a>
+    <a href="#team">Our Team</a>
+  </nav>
+
+  <header id="home">
+    <h1>Welcome to InterlliSite Group</h1>
+    <p>Innovating with Intelligence in IT and AI/ML</p>
+  </header>
+
+  <section id="about">
+    <h2>About InterlliSite</h2>
+    <p>We are a forward-thinking IT and AI/ML company, dedicated to delivering smart solutions that drive real impact across industries.</p>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li>AI and Machine Learning Solutions</li>
+      <li>Software Development</li>
+      <li>IT Infrastructure Consulting</li>
+      <li>Cloud Integration</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Previous Projects</h2>
+    <ul class="projects-list">
+      <li><strong>AI-powered Predictive Maintenance:</strong> Developed ML models to reduce downtime for manufacturing equipment.</li>
+      <li><strong>Smart Customer Support Chatbot:</strong> Built a natural language chatbot integrated with company CRM.</li>
+      <li><strong>Cloud Migration Strategy:</strong> Planned and executed migration of legacy systems to AWS Cloud.</li>
+      <li><strong>Data Analytics Dashboard:</strong> Created interactive dashboards for real-time business insights.</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form onsubmit="sendMessage(event)">
+      <input type="text" id="name" name="name" placeholder="Your Name" required />
+      <input type="email" id="email" name="email" placeholder="Your Email" required />
+      <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p style="text-align:center; margin-top:20px;">
+      Email: <a href="mailto:contact@interllisite.com" style="color:#fdd835;">contact@interllisite.com</a> | Phone: <a href="tel:+1234567890" style="color:#fdd835;">+123 456 7890</a>
+    </p>
+    <p style="text-align:center;">
+      Address: 123 Innovation Drive, Tech City
+    </p>
+  </section>
+
+  <section id="team">
+    <h2>Our Team</h2>
+    <div class="team">
+      <div class="member">
+        <img src="ChatGPT Image May 21, 2025, 11_06_02 AM.png" alt="Vule" />
+        <h3>Vule</h3>
+        <p>Founder & AI Specialist. Vule leads our innovation in intelligent systems and deep learning technologies.</p>
+        <div class="social-links">
+          <a href="https://facebook.com/vule" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="https://linkedin.com/in/vule" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+           <a href="https://github.com/vule" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      </div>
+      <div class="member">
+        <img src="ChatGPT Image May 21, 2025, 11_06_02 AM.png" alt="Tenda">
+        <h3>Tenda</h3>
+        <p>CTO & Software Architect. Tenda brings robust IT infrastructure and modern application design to our solutions.</p>
+      <div class="social-links">
+          <a href="https://facebook.com/vule" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="https://linkedin.com/in/vule" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+           <a href="https://github.com/vule" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+    </div>
+      <div class="member">
+        <img src="ChatGPT Image May 21, 2025, 11_06_02 AM.png" alt="Lufuno">
+        <h3>Lufuno</h3>
+        <p>ML Engineer. Lufuno develops and optimizes predictive models and ML pipelines.</p>
+      
+    <div class="social-links">
+          <a href="https://facebook.com/vule" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="https://linkedin.com/in/vule" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+           <a href="https://github.com/vule" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+    </div>
+      <div class="member">
+        <img src="ChatGPT Image May 21, 2025, 11_06_02 AM.png" alt="Gifted">
+        <h3>Gifted</h3>
+        <p>Full Stack Developer. Gifted bridges frontend and backend systems for AI-integrated applications.</p>
+    <div class="social-links">
+          <a href="https://facebook.com/vule" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="https://linkedin.com/in/vule" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+           <a href="https://github.com/vule" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+    </div>
+<div class="member">
+        <img src="ChatGPT Image May 21, 2025, 11_06_02 AM.png" alt="Vule" />
+        <h3>Shudu</h3>
+        <p>Founder & AI Specialist. Vule leads our innovation in intelligent systems and deep learning technologies.</p>
+        <div class="social-links">
+          <a href="https://facebook.com/vule" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="https://linkedin.com/in/vule" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+           <a href="https://github.com/vule" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      </div>
+
+      <div class="member">
+        <img src="ChatGPT Image May 21, 2025, 11_06_02 AM.png" alt="Vule" />
+        <h3>Loretta</h3>
+        <p>Founder & AI Specialist. Vule leads our innovation in intelligent systems and deep learning technologies.</p>
+        <div class="social-links">
+          <a href="https://facebook.com/vule" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="https://linkedin.com/in/vule" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+           <a href="https://github.com/vule" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      </div>
+
+      <div class="member">
+        <img src="ChatGPT Image May 21, 2025, 11_06_02 AM.png" alt="Vule" />
+        <h3>Naledi</h3>
+        <p>Founder & AI Specialist. Vule leads our innovation in intelligent systems and deep learning technologies.</p>
+        <div class="social-links">
+          <a href="https://facebook.com/vule" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="https://linkedin.com/in/vule" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+           <a href="https://github.com/vule" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 InterlliSite Group. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

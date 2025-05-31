@@ -172,7 +172,7 @@
     input, textarea {
       padding: 10px;
       border-radius: 6px;
-      border: 1.5px solid #6a1b9a;
+      box-shadow: 0 0 10px #6a1b9a;
       background-color: #222;
       color: white;
       font-size: 1rem;
@@ -181,11 +181,12 @@
     }
     input:focus, textarea:focus {
       outline: none;
-      border-color: whitesmoke;
-      box-shadow: 0 0 8px whitesmoke;
+    box-shadow: 0 0 10px #6a1b9a;
+      
     }
     button {
-      background-color: #6a1b9a;
+      background-color: transparent;
+      box-shadow: 0 0 10px #6a1b9a;
       color: white;
       border: none;
       padding: 12px;
@@ -194,6 +195,7 @@
       border-radius: 6px;
       font-size: 1.1rem;
       transition: background-color 0.3s;
+      margin-top: 5px;
     }
     button:hover {
       background-color: rgba(245, 245, 245, 0.76);

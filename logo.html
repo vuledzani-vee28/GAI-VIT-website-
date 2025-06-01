@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GAI-VIT</title>
 
+  <!-- Font Awesome CDN for Neuron Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     body {
       margin: 0;
@@ -14,51 +17,52 @@
 
     header {
       display: flex;
-      flex-direction: row;
       align-items: center;
-      background-color: #7fd6d6;
-      padding: 30px 20px;
+      justify-content: center;
+      background-color: #a7e3e3;
+      padding: 20px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .logo-img {
-      height: 30px;
-      margin-bottom: 3px;
-      animation: spin 10s linear infinite;
+    .logo-icon {
+      font-size: 48px;
+      color: #000;
+      margin-right: 15px;
+      animation: spin 6s linear infinite;
     }
 
     .company-name {
-      font-size: 20px;
+      font-size: 36px;
       font-weight: bold;
       color: #000;
       letter-spacing: 2px;
-      font-family:'Times New Roman', Times, serif;
-      margin-left: 5px;
-      top: 0;
-      bottom: 0;
-      border-bottom:2px solid #000;
     }
 
     .tagline {
-      font-size: 14px;
-      margin-top: 8px;
-      letter-spacing: 1px;
-      color: #333;
       text-align: center;
+      font-size: 14px;
+      margin-top: 5px;
+      letter-spacing: 1px;
+      color: #444;
     }
 
-
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <!-- 👇 Replace with your image path -->
-    <img src="tech-icon.png" alt="GAI-VIT Logo" class="logo-img">
-    
+
+    <i class="fas fa-project-diagram logo-icon"></i>
     <div class="company-name">GAI-VIT</div>
-   
   </header>
+
+  <div class="tagline">
+    Group of Advanced Innovation in Vision, Intelligence & Technology
+  </div>
 
 </body>
 </html>

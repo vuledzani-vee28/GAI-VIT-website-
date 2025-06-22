@@ -437,10 +437,10 @@ section {
 
 .member-image {
     position: relative;
-    width: 150px;
-    height: 150px;
+    width: 80%;
+    height: 80%;
     margin: 0 auto 20px;
-    border-radius: 50%;
+    border-radius: 5%;
     overflow: hidden;
 }
 
